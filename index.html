@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APS Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        input[type="number"] { width: 100px; margin: 5px; }
+        button { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>APS Calculator</h1>
+    <div>
+        <label for="subject1">Subject 1:</label>
+        <input type="number" id="subject1" min="0" max="100"><br>
+        <label for="subject2">Subject 2:</label>
+        <input type="number" id="subject2" min="0" max="100"><br>
+        <label for="subject3">Subject 3:</label>
+        <input type="number" id="subject3" min="0" max="100"><br>
+        <label for="subject4">Subject 4:</label>
+        <input type="number" id="subject4" min="0" max="100"><br>
+        <label for="subject5">Subject 5:</label>
+        <input type="number" id="subject5" min="0" max="100"><br>
+        <label for="subject6">Subject 6:</label>
+        <input type="number" id="subject6" min="0" max="100"><br>
+        <label for="subject7">Subject 7:</label>
+        <input type="number" id="subject7" min="0" max="100"><br>
+        <button onclick="calculateAPS()">Calculate APS</button>
+    </div>
+    <h2 id="result"></h2>
+    <script>
+        function calculatePoints(grade) {
+            if (grade >= 80) return 7;
+            else if (grade >= 70) return 6;
+            else if (grade >= 60) return 5;
+            else if (grade >= 50) return 4;
+            else if (grade >= 40) return 3;
+            else if (grade >= 30) return 2;
+            else return 1;
+        }
+        function calculateAPS() {
+            let totalPoints = 0;
+            for (let i = 1; i <= 7; i++) {
+                let grade = parseInt(document.getElementById(`subject${i}`).value) || 0;
+                totalPoints += calculatePoints(grade);
+            }
+            let aps = totalPoints / 7;
+            document.getElementById("result").innerText = `Your APS is: ${aps.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
