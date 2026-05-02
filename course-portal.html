@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Pathway Finder</title>
+</head>
+<body>
+    <h1>University Pathway Finder</h1>
+    <form id="course-form">
+        <label for="aps-score">Enter Your APS Score:</label>
+        <input type="number" id="aps-score" name="aps-score" required>
+        <br>
+        <label for="course-search">Search for Course Requirements:</label>
+        <input type="text" id="course-search" name="course-search" placeholder="Course Name">
+        <br>
+        <button type="submit">Find Courses</button>
+    </form>
+    <div id="results"></div>
+    <script>
+        document.getElementById('course-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var apsScore = document.getElementById('aps-score').value;
+            var courseSearch = document.getElementById('course-search').value;
+            var resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `<h2>Results for APS Score: ${apsScore}</h2>`;
+
+            // Here you would add logic to filter and display courses based on APS score
+            // and search requirements.
+            resultsDiv.innerHTML += `<p>Searching for requirements of course: ${courseSearch}...</p>`;
+        });
+    </script>
+</body>
+</html>
